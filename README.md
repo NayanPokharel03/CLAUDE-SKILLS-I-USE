@@ -1,6 +1,6 @@
 # Skill Library
 
-A personal collection of **191 AI agent skills** gathered from six open-source repositories, organised by source and documented with full attribution.
+A personal collection of **126 AI agent skills** gathered from seven open-source repositories, organised by source and documented with full attribution.
 
 > **Nothing in this repository is my own work.** Every skill here was written by someone else and is redistributed under its original licence. Each source folder contains an `ABOUT.md` naming the original repository, author and licence. If you find something useful here, please star the original repo — links below.
 
@@ -8,16 +8,17 @@ A personal collection of **191 AI agent skills** gathered from six open-source r
 
 | Folder | Skills | Source | Author | Licence |
 |---|---:|---|---|---|
-| [`open-design/`](open-design/) | 162 | [nexu-io/open-design](https://github.com/nexu-io/open-design) | nexu-io | Apache-2.0 |
+| [`open-design/`](open-design/) | 77 | [nexu-io/open-design](https://github.com/nexu-io/open-design) | nexu-io | Apache-2.0 |
 | [`superpowers/`](superpowers/) | 14 | [obra/superpowers](https://github.com/obra/superpowers) | Jesse Vincent | MIT |
 | [`ui-ux-pro-max/`](ui-ux-pro-max/) | 7 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | Next Level Builder | MIT |
 | [`ponytail/`](ponytail/) | 6 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | Dietrich Gebert | MIT |
+| [`caveman/`](caveman/) | 20 | [juliusbrussee/caveman](https://github.com/juliusbrussee/caveman) | Julius Brussee | MIT (repo is dual MIT / BSL-1.1) |
+| [`security-audit/`](security-audit/) | 1 | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | Cloudflare, Inc. | MIT |
 | [`karpathy-guidelines/`](karpathy-guidelines/) | 1 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | forrestchang | MIT |
-| [`graphify/`](graphify/) | 1 | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Safi Shamsi & contributors | Apache-2.0 |
 
 ## What each one gives you
 
-**[OpenDesign](open-design/)** — 162 functional design skills: creative direction and critique, branding, front-end and UI, GSAP motion, Figma automation, AI image/video/audio generation across a dozen providers, decks and documents, social and marketing assets, data visualisation. The largest part of this library by far. Extracted from OpenDesign's `skills/` directory; the app itself is not included.
+**[OpenDesign](open-design/)** — 77 design skills: GSAP motion, creative direction and taste, editorial decks and documents, social and brand assets, video frames, front-end tooling. The largest part of this library. Extracted from OpenDesign's `skills/` directory; the app itself is not included, and 85 catalogue-pointer entries were dropped — see its `ABOUT.md` for why and where to get them.
 
 **[Superpowers](superpowers/)** — a complete development methodology as composable skills: brainstorm → spec → plan → red/green TDD → code review → verification before completion. Also covers git worktrees, systematic debugging, and writing new skills.
 
@@ -27,7 +28,9 @@ A personal collection of **191 AI agent skills** gathered from six open-source r
 
 **[Karpathy Guidelines](karpathy-guidelines/)** — four behavioural rules to reduce common LLM coding mistakes, derived from Andrej Karpathy's public observations. (Written by `forrestchang`, not by Karpathy.)
 
-**[Graphify](graphify/)** — turns a codebase into a queryable knowledge graph instead of grepping through files. **Requires `pip install graphifyy`** to function.
+**[Security Audit](security-audit/)** — turns the agent into a security auditor: six phases from reconnaissance through coverage-led hunting to independently verified, structured findings. Seeded Cloudflare's own vulnerability-discovery harness. Needs Node.js for its validators.
+
+**[Caveman](caveman/)** — token-cost tooling: a compressed output mode that cuts spend, plus disciplined task workflows (investigate before editing, patch narrowly, verify before claiming). Some skills need a Caveman Cloud account; most don't.
 
 ## Installing
 
@@ -37,12 +40,15 @@ Short version for Claude Code: copy every skill folder into `~/.claude/skills/`,
 
 ## Things to know
 
-- **Three skill names appear twice.** `ui-ux-pro-max`, `slides` and `brainstorming` each exist in two source folders. A flat install would have one silently overwrite the other — see `INSTRUCTIONS.md` for the prefix convention that keeps both.
-- **Roughly 30 skills need paid API keys.** Everything in OpenDesign's fal.ai, Venice, Replicate, Sora, Imagen, MiniMax and Pixelbin groups calls an external service.
-- **Context cost.** Installing all 191 at user level puts every skill's description into every session — plausibly 15–25k tokens. Consider a project-level install for the design skills if that matters to you.
+- **Every skill here has real content.** Upstream OpenDesign ships 85 catalogue pointers — ~1.2 KB stubs that only tell you to go install the real thing. They were removed; installed, they burn context and can only report a capability you don't have. Its `ABOUT.md` lists all 85 with their source repos if you want any properly.
+- **No name collisions.** Nothing in this library shares a folder name with anything else.
+- **Context cost.** Installing all 126 at user level puts every skill's description into every session — roughly 10–15k tokens. Consider a project-level install for the design skills if that matters to you.
+
 ## Licensing
 
-Every folder carries its original `LICENSE` file, fetched from the source repository, so the licence text travels with the code as MIT and Apache-2.0 both require. `open-design/` additionally has 20 per-skill `LICENSE` files where individual skills came from elsewhere, and `graphify/` keeps its `NOTICE` and `LICENSE-MIT` alongside the Apache-2.0 text.
+Every folder carries its original `LICENSE` file, fetched from the source repository, so the licence text travels with the code as MIT and Apache-2.0 both require. `open-design/` additionally has 20 per-skill `LICENSE` files where individual skills came from elsewhere.
+
+**Caveman is dual-licensed.** Its repo splits MIT from Business Source License 1.1 — a source-available licence that restricts offering the work as a hosted service until 2030. Only the MIT-covered `skills/` directory was taken; no BSL code is here. The kept `LICENSE` includes the upstream scope note so the split stays visible.
 
 **One exception:** `karpathy-guidelines/` has no `LICENSE` file. The upstream repo doesn't ship one — MIT is declared in its manifest and skill frontmatter, but the text is absent. No licence file was invented on the author's behalf. If this library ever goes public, that folder needs the author's licence added or should be left out.
 
@@ -56,4 +62,5 @@ When a new skill repo is added:
 2. Copy only the skill folders (those containing `SKILL.md`, plus their supporting files) into a folder named after the project.
 3. Write an `ABOUT.md` in it: source URL, author, licence, version, what it does, a table of every sub-skill, and what was deliberately left out.
 4. Check for name collisions against the existing skills.
-5. Update this table and `INSTRUCTIONS.md`.
+5. Check for catalogue pointers — entries whose `SKILL.md` only describes a skill and links elsewhere, with no assets or real instructions. Drop them; record the upstream links in the `ABOUT.md` instead.
+6. Update this table and `INSTRUCTIONS.md`.
